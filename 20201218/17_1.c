@@ -3,30 +3,31 @@
 #include <stdlib.h>
 
 struct profile {
-	char name[20];
 	int age;
 	double height;
-	char* intro;
+};
+
+struct student {
+	struct profile pf;
+	int id;
+	double grade;
 };
 
 
 int main() {
-	struct profile yuni;
 
-	strcpy(yuni.name, "서하윤");
-	yuni.age = 17;
-	yuni.height = 164.5;
+	struct student yuni;
 	
-	yuni.intro = (char*)malloc(80);
-	printf("자기소개 : ");
-	gets(yuni.intro);
+	yuni.pf.age = 17;
+	yuni.pf.height = 164.5;
+	yuni.id = 315;
+	yuni.grade = 4.3;
+
 	
-	printf("이름     : %s\n", yuni.name);
-	printf("나이     : %d\n", yuni.age);
-	printf("키       : %.1lf\n", yuni.height);
-	printf("자기소개 : %s\n", yuni.intro);
-	
-	free(yuni.intro);
+	printf("나이 : %d\n", yuni.pf.age);
+	printf("키   : %.1lf\n", yuni.pf.height);
+	printf("학번 : %d\n", yuni.id);
+	printf("학점 : %.1lf\n", yuni.grade);
 
 	return 0;
 }
